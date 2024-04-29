@@ -13,7 +13,7 @@ class _AdditionScreenState extends State<AdditionScreen> {
   String result = '';
 
   // Define your URL endpoint here
-  final String url = 'http://10.0.2.2:5000/calculate_sum';
+  final String url = 'http://10.0.2.2:5000/add';
 
   Future<void> sendNumbersAndAdd() async {
     final int? number1 = int.tryParse(number1Controller.text);
@@ -22,7 +22,7 @@ class _AdditionScreenState extends State<AdditionScreen> {
     if (number1 != null && number2 != null) {
       final response = await http.post(
         Uri.parse(url),
-        body: jsonEncode({'number1': number1, 'number2': number2}),
+        body: jsonEncode({'num1': number1, 'num2': number2}),
         headers: {'Content-Type': 'application/json'},
       );
 
